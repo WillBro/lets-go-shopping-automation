@@ -1,7 +1,6 @@
 package uk.co.trycatchfinallysoftware.shopping.features.review_order;
 
 
-import net.serenitybdd.core.Serenity;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
@@ -10,13 +9,11 @@ import net.thucydides.core.annotations.Screenshots;
 import net.thucydides.core.annotations.WithTag;
 import org.joda.time.DateTime;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import uk.co.trycatchfinallysoftware.shopping.questions.OrderHistoryOrderReferences;
 import uk.co.trycatchfinallysoftware.shopping.questions.OrderMessages;
-import uk.co.trycatchfinallysoftware.shopping.tasks.MyAccount;
 import uk.co.trycatchfinallysoftware.shopping.tasks.SignInHeader;
 import uk.co.trycatchfinallysoftware.shopping.tasks.Start;
 import uk.co.trycatchfinallysoftware.shopping.tasks.account.AddMessageToOrder;
@@ -26,6 +23,7 @@ import uk.co.trycatchfinallysoftware.shopping.tasks.account.ViewOrders;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.*;
 import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.is;
 
 @RunWith(SerenityRunner.class)
@@ -66,8 +64,8 @@ public class OrderReview {
         );
 
         then(jane).should(seeThat("That message has been added with correct text",
-                OrderMessages.displayed(),
-                contains(message))
+                OrderMessages.listMessages(),
+                containsInAnyOrder(message))
         );
     }
 

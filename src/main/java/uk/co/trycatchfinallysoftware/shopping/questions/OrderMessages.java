@@ -9,13 +9,13 @@ import java.util.List;
 
 public class OrderMessages implements Question<List<String>> {
 
-    public static Question<List<String>> displayed() {
-        return actor -> Text.of(OrderHistoryItem.MESSAGES).viewedBy(actor).asList();
+    public static Question<List<String>> listMessages() {
+        return actor -> Text.of(OrderHistoryItem.MESSAGE_BODY).viewedBy(actor).asList();
     }
 
     @Override
     public List<String> answeredBy(Actor actor) {
-        return Text.of(OrderHistoryItem.MESSAGES)
+        return Text.of(OrderHistoryItem.MESSAGE_BODY)
                 .viewedBy(actor)
                 .asList();
     }

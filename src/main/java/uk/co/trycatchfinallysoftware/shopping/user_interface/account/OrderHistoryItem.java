@@ -13,6 +13,8 @@ public class OrderHistoryItem {
     public static Target SUBMIT_MESSAGE = Target.the("")
             .locatedBy("form#sendOrderMessage button[type='Submit'][name='submitMessage']");
 
-    public static Target MESSAGES = Target.the("")
-            .locatedBy("table.detail_step_by_step tr");
+    // @todo Fix XPath to select Message bodies
+    // cssSelector h3.page-heading:contains(Messages) + .table_block table tr td:nth-child(2)
+    public static Target MESSAGE_BODY = Target.the("")
+            .locatedBy("//*[@id=\"block-order-detail\"]/div[5]/table/tbody/tr/td[2]");
 }
