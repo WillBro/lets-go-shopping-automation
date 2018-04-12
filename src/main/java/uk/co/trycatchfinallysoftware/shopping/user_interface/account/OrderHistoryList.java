@@ -4,6 +4,10 @@ import net.serenitybdd.screenplay.targets.Target;
 
 public class OrderHistoryList {
 
+    public static Target ORDER_IDS = Target.the("Order IDs")
+            .locatedBy("table#order-list td.history_link ");
+
+
     public static Target FIRST_ITEM = Target.the("")
             .locatedBy("table#order-list tr.first_item td.history_detail a");
 
