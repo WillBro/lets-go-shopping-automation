@@ -24,12 +24,19 @@ mvn clean install
 mvn verify
 ```
 
+## Reports
+
+Once the tests have ran Serenity will generate a report which can be found at path:
+
+```
+target/site/index.html
+```
+
 ## Remaining Assignment Tasks
 
 At present there are remaining assignment tasks:
 
 * Assertion of correct added Order message
-* Testing of the REST API CRUD operations of https://reqres.in/
 
 ## Future Improvements
 
