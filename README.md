@@ -24,6 +24,13 @@ mvn clean install
 mvn verify
 ```
 
+## Remaining Assignment Tasks
+
+At present there are remaining assignment tasks:
+
+* Assertion of correct added Order message
+* Testing of the REST API CRUD operations of https://reqres.in/
+
 ## Future Improvements
 
 * Using Google Freebuilder to create DAO which could be used to create data for the Personal and Address information during checkout
