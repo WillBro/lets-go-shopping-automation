@@ -1,8 +1,6 @@
 package uk.co.trycatchfinallysoftware.regres.steps;
 
 import io.restassured.http.ContentType;
-import io.restassured.path.json.JsonPath;
-import io.restassured.response.Response;
 import net.serenitybdd.core.Serenity;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
@@ -18,6 +16,13 @@ public class CreateUserSteps extends BaserUserSteps {
         response = SerenityRest
                 .given().contentType(ContentType.JSON).accept(ContentType.JSON)
                 .when().post(USER_API);
+
+        Serenity.setSessionVariable("id").to(
+                response.then().body("id", is(not(empty())))
+                        .extract()
+                        .jsonPath().
+                        getInt("id")
+        );
     }
 
     @Step
@@ -27,11 +32,12 @@ public class CreateUserSteps extends BaserUserSteps {
 
     @Step
     public void iShouldFindUserIdHasBeenGenerated() {
-        int id = response.then().body("id", is(not(empty()))).extract().as(Integer.class);
+        int id = response.then().body("id", is(not(empty())))
+                .extract()
+                .jsonPath()
+                .getInt("id");
 
         assertThat("Id is a valid number", id, greaterThan(0));
-
-        Serenity.setSessionVariable("id").to(id);
     }
 
     @Step

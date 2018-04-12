@@ -3,8 +3,10 @@ package uk.co.trycatchfinallysoftware.regres;
 import net.serenitybdd.core.Serenity;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import uk.co.trycatchfinallysoftware.regres.steps.CreateUserSteps;
 import uk.co.trycatchfinallysoftware.regres.steps.DeleteUserSteps;
 import uk.co.trycatchfinallysoftware.regres.steps.GetUserSteps;
 
@@ -17,10 +19,20 @@ public class DeleteUserTests {
     DeleteUserSteps deleteUserSteps;
 
     @Steps
+    CreateUserSteps createUserSteps;
+
+    @Steps
     GetUserSteps getUserSteps;
 
+    @Before
     public void getSessionUserId() {
+        createUserSteps.create("UserToDelete", "Refuse Collector");
+
         id = Serenity.sessionVariableCalled("id");
+
+
+
+        // @todo Create a new user to delete to create an independent test
     }
 
     @Test
