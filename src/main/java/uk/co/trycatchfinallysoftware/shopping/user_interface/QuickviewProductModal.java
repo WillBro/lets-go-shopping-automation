@@ -31,5 +31,5 @@ public class QuickviewProductModal {
     // Size
     // @todo Refactor as its unlikely these groups will be the same for each product category
     public static Target SELECT_GROUP_ONE = Target.the("Select attribute group 1")
-            .locatedBy("select#group_1");
+            .locatedBy("form#buy_block select#group_1");
 }
