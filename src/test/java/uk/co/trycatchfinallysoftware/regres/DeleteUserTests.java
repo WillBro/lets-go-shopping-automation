@@ -29,10 +29,6 @@ public class DeleteUserTests {
         createUserSteps.create("UserToDelete", "Refuse Collector");
 
         id = Serenity.sessionVariableCalled("id");
-
-
-
-        // @todo Create a new user to delete to create an independent test
     }
 
     @Test

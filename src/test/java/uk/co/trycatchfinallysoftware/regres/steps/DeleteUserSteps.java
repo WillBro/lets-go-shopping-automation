@@ -9,7 +9,7 @@ public class DeleteUserSteps extends BaserUserSteps {
 
     @Step("When I delete user with id {0}")
     public void delete(int id) {
-        SerenityRest
+        response = SerenityRest
                 .given().contentType(ContentType.JSON).accept(ContentType.JSON)
                 .when().delete(USER_API_WITH_ID, createApiUrlWithUserId(id));
     }
