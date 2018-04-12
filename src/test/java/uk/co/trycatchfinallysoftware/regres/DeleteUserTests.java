@@ -25,8 +25,8 @@ public class DeleteUserTests {
     GetUserSteps getUserSteps;
 
     @Before
-    public void getSessionUserId() {
-        createUserSteps.create("UserToDelete", "Refuse Collector");
+    public void createUserToDeleteAndStoreId() {
+        createUserSteps.create("User To Delete", "Refuse Collector");
 
         id = Serenity.sessionVariableCalled("id");
     }

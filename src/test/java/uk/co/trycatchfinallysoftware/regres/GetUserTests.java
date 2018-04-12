@@ -6,6 +6,7 @@ import net.thucydides.core.annotations.Steps;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import uk.co.trycatchfinallysoftware.regres.steps.CreateUserSteps;
 import uk.co.trycatchfinallysoftware.regres.steps.GetUserSteps;
 
 @RunWith(SerenityRunner.class)
@@ -16,8 +17,13 @@ public class GetUserTests {
     @Steps
     GetUserSteps getUserSteps;
 
+    @Steps
+    CreateUserSteps createUserSteps;
+
     @Before
-    public void getSessionUserId() {
+    public void createUserToGetAndStoreId() {
+        createUserSteps.create("UserToGet", "Manager");
+
         id = Serenity.sessionVariableCalled("id");
     }
 
