@@ -69,7 +69,6 @@ public class BuyProduct {
         ); // @todo abstract moving to other frame elsewhere
 
         when(jane).attemptsTo(
-                IncreaseQuantityWanted.increase(),
                 SelectFromOptions.byVisibleText("L").from(QuickviewProductModal.SELECT_GROUP_ONE),
                 AddProductToCart.addToCart(),
                 ContinueShopping.continueShopping()
@@ -83,7 +82,6 @@ public class BuyProduct {
         ); // @todo abstract moving to other frame elsewhere (especially due to duplicated code)
 
         when(jane).attemptsTo(
-                IncreaseQuantityWanted.increase(),
                 AddProductToCart.addToCart(),
                 ProceedToCheckout.proceedToCheckout()
         );
