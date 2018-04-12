@@ -4,6 +4,6 @@ import net.serenitybdd.screenplay.targets.Target;
 
 public class AccountCreate {
 
-    public static Target REGISTER = Target.the("")
+    public static Target REGISTER = Target.the("Submit Account Creation")
             .locatedBy("form#account-creation_form button[type='submit']");
 }

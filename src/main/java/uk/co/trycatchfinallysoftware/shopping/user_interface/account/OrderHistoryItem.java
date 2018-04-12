@@ -4,15 +4,17 @@ import net.serenitybdd.screenplay.targets.Target;
 
 public class OrderHistoryItem {
 
-    public static Target PRODUCTS = Target.the("")
+    public static Target PRODUCTS = Target.the("Order Detail Row")
             .locatedBy("#order-detail-content table tbody tr.item");
 
-    public static Target MESSAGE_TEXT = Target.the("")
+    public static Target MESSAGE_TEXT = Target.the("Order Detail Add Message")
             .locatedBy("form#sendOrderMessage textarea[name='msgText']");
 
-    public static Target SUBMIT_MESSAGE = Target.the("")
+    public static Target SUBMIT_MESSAGE = Target.the("Add Order Detail Message")
             .locatedBy("form#sendOrderMessage button[type='Submit'][name='submitMessage']");
 
-    public static Target MESSAGES = Target.the("")
-            .locatedBy("table.detail_step_by_step tr");
+    // @todo Fix XPath to select Message bodies
+    // cssSelector h3.page-heading:contains(Messages) + .table_block table tr td:nth-child(2)
+    public static Target MESSAGE_BODY = Target.the("Order Messages Content")
+            .locatedBy("//*[@id=\"block-order-detail\"]/div[5]/table/tbody/tr/td[2]");
 }

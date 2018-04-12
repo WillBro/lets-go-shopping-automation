@@ -4,7 +4,7 @@ import net.serenitybdd.screenplay.targets.Target;
 
 public class OrderManagement {
 
-    public static Target VIEW_ORDERS = Target.the("")
+    public static Target VIEW_ORDERS = Target.the("Order Management Order Action")
             .locatedBy("ul.myaccount-link-list a[title='Orders']");
 
     // @todo Credit Slips, Addresses, Personal Information and Wishlist

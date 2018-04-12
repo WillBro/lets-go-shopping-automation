@@ -4,7 +4,7 @@
 
     <groupId>java.uk.co.trycatchfinallysoftware.shopping</groupId>
     <artifactId>lets-go-shopping-automation</artifactId>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
     <packaging>jar</packaging>
 
     <name>Lets go Shopping Test Automation</name>
@@ -19,6 +19,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <serenity.version>1.9.6</serenity.version>
         <serenity.maven.version>1.9.6</serenity.maven.version>
         <serenity.cucumber.version>1.9.4</serenity.cucumber.version>
