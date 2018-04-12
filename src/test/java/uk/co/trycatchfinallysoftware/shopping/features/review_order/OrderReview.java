@@ -14,6 +14,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
+import uk.co.trycatchfinallysoftware.shopping.questions.OrderHistoryOrderReferences;
 import uk.co.trycatchfinallysoftware.shopping.questions.OrderMessages;
 import uk.co.trycatchfinallysoftware.shopping.tasks.MyAccount;
 import uk.co.trycatchfinallysoftware.shopping.tasks.SignInHeader;
@@ -71,9 +72,8 @@ public class OrderReview {
     }
 
     @Test
-    @Ignore("Not Implemented yet")
     @Screenshots(onlyOnFailures = true)
-    public void shouldTakeScreenshotWhenColourAssertionFailed() {
+    public void shouldTakeScreenshotWhenOrderIdAssertionFailed() {
         givenThat(jane).wasAbleTo(Start.withAnEmptyCart());
 
         // @todo Use Serenity.Session stored variables
@@ -83,14 +83,13 @@ public class OrderReview {
         when(jane).attemptsTo(
                 SignInHeader.signIn(),
                 SignIn.withCredentials(loginWithEmail, password),
-                ViewOrders.viewOrders(),
-                ViewFirstOrderHistory.viewFirstOrder()
+                ViewOrders.viewOrders()
         );
 
-        // Asserting an incorrect colour to generate screenshot.
-        then(jane).should(seeThat("The Blouse was ordered with the correct colour",
-                null, // @todo Add Question
-                is("Polkadot")
+        // Asserting an non-existent Order ID to generate screenshot.
+        then(jane).should(seeThat("Order History contains expected Order ID",
+                OrderHistoryOrderReferences.displayed(),
+                contains("ZKIINJBES")
         ));
     }
 }
